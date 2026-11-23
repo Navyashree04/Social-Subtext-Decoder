@@ -1,174 +1,85 @@
-# 🧠 Healthiathon
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=180&section=header&text=Social%20Subtext%20Decoder&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Decode%20tone%20and%20implied%20meaning%20%C2%B7%20practise%20conversations%20with%20a%203D%20avatar&descAlignY=60&descSize=15" width="100%"/>
 
-An AI-powered communication and mental wellness platform designed to help users understand social cues, decode hidden meanings in conversations, and practice communication skills with an interactive 3D talking avatar.
+<div align="center">
 
----
+<img src="https://skillicons.dev/icons?i=react,vite,tailwind,threejs,nodejs,express,postgres&theme=dark" />
+<br/><br/>
+<img src="https://img.shields.io/badge/LLM-Gemini%202.5%20Flash%20%2B%20GPT--4o--mini-4285F4?style=flat-square" />
+<img src="https://img.shields.io/badge/Voice-ElevenLabs%20%2B%20Whisper-black?style=flat-square" />
+<img src="https://img.shields.io/badge/Built%20at-Healthiathon-orange?style=flat-square" />
 
-## 🌟 Project Overview
-
-Healthiathon was developed as an innovative hackathon project focused on improving communication skills and emotional understanding. The platform combines natural language processing, speech recognition, conversational AI, and 3D avatar technology to create a safe and engaging environment for users to practice real-world interactions.
-
-The project is especially valuable for:
-- Social skills training
-- Communication coaching
-- Accessibility support
-- Emotional intelligence development
-- Mental wellness applications
+</div>
 
 ---
 
-## ✨ Core Features
+## 🧠 ᴏᴠᴇʀᴠɪᴇᴡ
 
-### 💬 Social Subtext Decoder
-- Analyzes text messages and conversations
-- Detects emotional tone and sentiment
-- Interprets hidden meanings and implied intent
-- Explains social context in simple language
+Some messages say one thing and mean another. Social Subtext Decoder takes a message, explains its tone and implied meaning, and suggests replies that fit the context. It also lets people rehearse real conversations (a job interview, ordering at a restaurant, or a custom situation) with a talking 3D avatar.
 
-### 🗣️ AI Talking Avatar
-- Interactive 3D avatar with realistic facial expressions
-- Lip-synced speech generation
-- Voice-based conversations
-- Dynamic emotional expressions
-
-### 🎙️ Speech Practice Mode
-- Practice speaking in real-world scenarios
-- Speech recognition and feedback
-- Confidence-building exercises
-
-### 🤝 Live Conversation Mode
-- Supports conversations between two real people
-- Real-time AI assistance and insights
-
-### 🎮 Gamification
-- XP-based progression
-- Level badges
-- Session summaries and achievements
-
-### 📜 History Tracking
-- Stores previous conversations and decoding results
-- Allows users to revisit and learn over time
+It was built as a hackathon project at **Healthiathon**, aimed at communication-skills practice and accessibility.
 
 ---
 
-## 🏗️ System Architecture
+## ✨ ꜰᴇᴀᴛᴜʀᴇꜱ
 
+| Mode | What it does |
+|:--|:--|
+| 💬 **Decoder** | Paste a message and get its tone, the likely subtext, and suggested replies (Gemini 2.5 Flash) |
+| 🗣️ **Practice** | Pick a situation and role-play it with an AI partner; sessions and messages are saved |
+| 🎭 **Avatar practice** | A 3D avatar (Three.js) replies via GPT-4o-mini and speaks with lip-sync and facial expressions |
+| 🎙️ **Live conversation** | Talk by voice: speech-to-text (Whisper) in, text-to-speech (ElevenLabs) out |
+| 🏅 **Gamification** | XP, levels and an end-of-session summary |
+| 📜 **History** | Review or delete past decodes |
 
-User Interface (React + Vite + Tailwind CSS)
-            │
-            ▼
-     3D Avatar & Speech Modules
-            │
-            ▼
-     Backend API (Node.js + Express)
-            │
- ┌──────────┼──────────┐
- ▼          ▼          ▼
-OpenAI   Database   Audio Services
+---
 
-### 🛠️ Tech Stack
+## 🏗️ ᴀʀᴄʜɪᴛᴇᴄᴛᴜʀᴇ
 
-Frontend:
-- React.js
-- Vite
-- Tailwind CSS
-- Three.js / React Three Fiber
-- Web Speech API
-- 
-Backend:
-- Node.js
-- Express.js
-- WebSocket
-- AI & Media
-- OpenAI APIs
-- Text-to-Speech
-- Speech Recognition
-- Lip Sync Processing
+```text
+React + Vite + Tailwind ──REST / Socket.IO──► Express API ──► PostgreSQL
+  ├─ Three.js avatar (lip-sync, expressions)        ├─ Gemini 2.5 Flash · GPT-4o-mini (avatar)
+  └─ face-api.js, Web Speech                        ├─ ElevenLabs TTS · Whisper STT
+                                                    └─ zod validation · helmet · rate limiting
+```
 
-Database:
-- SQL (schema-based storage)
-- Deployment
-- Vercel
-- Railway
-- Procfile support
-  
-### 📁 Project Structure
-healthiathon/
-├── projects/
-│   └── social-subtext-decoder/
-│       └── social-subtext-decoder/
-│           ├── backend/
-│           ├── frontend/
-│           ├── ARCHITECTURE.md
-│           ├── ROADMAP.md
-│           ├── TESTING.md
-│           └── README.md
-├── talking-avatar-with-ai/
-└── start-backend.ps1
+| Endpoint | Purpose |
+|:--|:--|
+| `POST /api/decode` | Decode a message |
+| `GET /api/practice/situations` · `POST /api/practice/session` · `POST /api/practice/message` · `POST /api/practice/end` | Practice sessions |
+| `POST /api/avatar/tts` · `POST /api/avatar/stt` · `POST /api/avatar/live` | Voice and avatar |
+| `GET /api/history` · `DELETE /api/history/:id` | History |
 
-### 🚀 Key Modules
-Backend:
-- Decode Controller
-- Practice Controller
-- History Controller
-- AI Service
-- Audio Service
-- Lip Sync Service
-- OpenAI Integration
-  
-Frontend:
-- 3D Avatar Components
-- Decoder Input
-- Practice Chat
-- Speech Recognition Hooks
-- WebSocket Client
-- Gamification Components
-  
-### ⚙️ Installation and Setup
+---
 
-1. Clone the Repository
-git clone https://github.com/reddyvaishnavii/social-subtext-decoder.git
-cd social-subtext-decoder/projects/social-subtext-decoder/social-subtext-decoder
-2. Install Backend Dependencies
-cd backend
+## 🚀 ʀᴜɴ ɪᴛ ʟᴏᴄᴀʟʟʏ
+
+The app lives in `projects/social-subtext-decoder/social-subtext-decoder/`.
+
+```bash
+# Backend (http://localhost:3001)
+cd projects/social-subtext-decoder/social-subtext-decoder/backend
 npm install
-3. Install Frontend Dependencies
+# create .env with GEMINI_API_KEY, ELEVEN_LABS_API_KEY, OPENAI_API_KEY
+# and either DB_HOST/DB_USER/DB_PASSWORD/DB_NAME or USE_MOCK_DB=true
+npm start
+
+# Frontend
 cd ../frontend
 npm install
-4. Configure Environment Variables
-Create a .env file in the backend folder and add your API keys.
-5. Start the Backend
-cd backend
 npm run dev
-6. Start the Frontend
-cd ../frontend
-npm run dev
-7. Open in Browser
-http://localhost:5173
+```
 
-### 🎯 Use Cases
-Communication skills development
-Social cue interpretation
-Autism support and social training
-Emotional intelligence coaching
-Mental wellness applications
+Set `USE_MOCK_DB=true` to run without PostgreSQL. The schema is in `backend/database/schema.sql`.
 
-###🎓 Learning Outcomes
+---
 
-Through this project, I gained hands-on experience with:
+<div align="center">
 
-Generative AI and NLP
-3D web development
-Speech recognition and synthesis
-Real-time communication with WebSockets
-Full-stack development
-Gamification design
-Deployment to cloud platforms
+**Navyashree J** · BTech CSE (AI/ML), PES University
 
-### 👩‍💻 Contributors
-Vaishnavi Reddy
-Hackathon Team Members
+<a href="https://github.com/Navyashree04"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="https://linkedin.com/in/navyashreej1"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 
-### 📄 License
+</div>
 
-This project was developed for educational and hackathon purposes.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=100&section=footer" width="100%"/>
