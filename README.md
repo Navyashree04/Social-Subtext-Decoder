@@ -12,7 +12,7 @@
 
 ---
 
-## 🧠 ᴏᴠᴇʀᴠɪᴇᴡ
+## ᴏᴠᴇʀᴠɪᴇᴡ
 
 Some messages say one thing and mean another. Social Subtext Decoder takes a message, explains its tone and implied meaning, and suggests replies that fit the context. It also lets people rehearse real conversations (a job interview, ordering at a restaurant, or a custom situation) with a talking 3D avatar.
 
@@ -20,20 +20,20 @@ It was built as a hackathon project at **Healthiathon**, aimed at communication-
 
 ---
 
-## ✨ ꜰᴇᴀᴛᴜʀᴇꜱ
+## ꜰᴇᴀᴛᴜʀᴇꜱ
 
 | Mode | What it does |
 |:--|:--|
-| 💬 **Decoder** | Paste a message and get its tone, the likely subtext, and suggested replies (Gemini 2.5 Flash) |
-| 🗣️ **Practice** | Pick a situation and role-play it with an AI partner; sessions and messages are saved |
-| 🎭 **Avatar practice** | A 3D avatar (Three.js) replies via GPT-4o-mini and speaks with lip-sync and facial expressions |
-| 🎙️ **Live conversation** | Talk by voice: speech-to-text (Whisper) in, text-to-speech (ElevenLabs) out |
-| 🏅 **Gamification** | XP, levels and an end-of-session summary |
-| 📜 **History** | Review or delete past decodes |
+| **Decoder** | Paste a message and get its tone, the likely subtext, and suggested replies (Gemini 2.5 Flash) |
+| **Practice** | Pick a situation and role-play it with an AI partner; sessions and messages are saved |
+| **Avatar practice** | A 3D avatar (Three.js) replies via GPT-4o-mini and speaks with lip-sync and facial expressions |
+| **Live conversation** | Talk by voice: speech-to-text (Whisper) in, text-to-speech (ElevenLabs) out |
+| **Gamification** | XP, levels and an end-of-session summary |
+| **History** | Review or delete past decodes |
 
 ---
 
-## 🏗️ ᴀʀᴄʜɪᴛᴇᴄᴛᴜʀᴇ
+## ᴀʀᴄʜɪᴛᴇᴄᴛᴜʀᴇ
 
 ```text
 React + Vite + Tailwind ──REST / Socket.IO──► Express API ──► PostgreSQL
@@ -51,7 +51,7 @@ React + Vite + Tailwind ──REST / Socket.IO──► Express API ──► Po
 
 ---
 
-## 🚀 ʀᴜɴ ɪᴛ ʟᴏᴄᴀʟʟʏ
+## ʀᴜɴ ɪᴛ ʟᴏᴄᴀʟʟʏ
 
 The app lives in `projects/social-subtext-decoder/social-subtext-decoder/`.
 
